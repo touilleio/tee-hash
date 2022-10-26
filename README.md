@@ -17,8 +17,12 @@ aws s3 cp hash.sha256 s3://bucket/$folder.tar.sha256sum
 
 This allows to compute the hash of the file without reading the file twice.
 
+# Without `tee-hash`
+
+If you would have done it without `tee-hash`, you would probably have done it the following way:
+
 ```
-tar cf $folder.tar $folder <- !! requires local storage
+tar cf $folder.tar $folder <- !! requires almost the same amount of local storage
 aws s3 cp $folder.tar s3://bucket/$folder.tar <- reads $folder.tar
 sha256sum $folder.tar | awk '{print $a}' > $folder.tar.sha256sum <- !! read $folder.tar a second times
 aws s3 cp $folder.tar.sha256sum s3://bucket/$folder.tar.sha256sum
