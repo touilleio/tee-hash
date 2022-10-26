@@ -1,7 +1,7 @@
 Tee hash
 ====
 
-Compute the hash on the fly of a flow stdin->stdout and write the resulting hash to a local file for later use.
+`tee-hash` computes the sha256 hash on the fly of a flow stdin -> stdout and write the resulting hash to a local file for later use.
 
 Typical use case is for tar'ing a big folder and sending it to S3 without the need to store it locally first and reading it twice:
 
