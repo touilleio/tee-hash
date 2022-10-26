@@ -17,6 +17,14 @@ aws s3 cp hash.sha256 s3://bucket/$folder.tar.sha256sum
 
 This allows to compute the hash of the file without reading the file twice.
 
+# Usage
+
+```
+go install github.com/touilleio/tee-hash@latest
+echo 1234 | tee-hash
+cat hash.sha256
+```
+
 # Without `tee-hash`
 
 If you would have done it without `tee-hash`, you would probably have done it the following way:
